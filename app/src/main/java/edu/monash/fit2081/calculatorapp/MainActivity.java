@@ -167,7 +167,18 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void computeCalculation() {
-
+        /*
+         * if valueOne has an assigned value then
+         *       declare string of valueTwo and assign it the interscreen input
+         *       if valueTwo is not empty then
+         *          convert valueTwo into a Double
+         *          reset the interscreen
+         *          if {
+         *          perform the required operation according to the selected CURRENT_ACTION
+         *          }
+         * else
+         *       try to convert the interscreen input to a Double and assign it to valueOne
+         * */
         if (!Double.isNaN(valueOne)) {
             String valueTwoString = interScreen.getText().toString();
             if (!valueTwoString.equals("")) {
@@ -186,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 valueOne = Double.parseDouble(interScreen.getText().toString());
             } catch (Exception e) {
+                Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
 
         }
